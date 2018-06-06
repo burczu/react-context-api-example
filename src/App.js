@@ -12,7 +12,7 @@ class App extends Component {
     this.setState({ color: newColor });
   }
 
-  render() {
+  render = () => {
     return (
       <ColorContext.Provider value={this.state.color}>
         <WelcomeText />
