@@ -13,11 +13,13 @@ class App extends Component {
   }
 
   render = () => {
+    const { Provider } = ColorContext;
+
     return (
-      <ColorContext.Provider value={this.state.color}>
+      <Provider value={this.state.color}>
         <WelcomeText />
         <button onClick={this.onColorChange}>Toggle color!</button>
-      </ColorContext.Provider>
+      </Provider>
     );
   }
 }

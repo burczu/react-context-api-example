@@ -2,10 +2,12 @@ import React from 'react';
 import { ColorContext } from './ColorContext';
 
 const WelcomeText = (props) => {
+  const { Consumer } = ColorContext;
+
   return (
-    <ColorContext.Consumer>
+    <Consumer>
       {color => <p style={{ color }}>Hello world!!</p>}
-    </ColorContext.Consumer>
+    </Consumer>
   );
 };
 
