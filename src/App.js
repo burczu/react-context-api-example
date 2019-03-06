@@ -1,27 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { ColorContext } from './ColorContext';
 import WelcomeText from './WelcomeText';
 
-class App extends Component {
-  state = { color: 'red' };
+const App = () => {
+  const [ state, setState ] = React.useState({ color: 'red' });
+  const { Provider } = ColorContext;
 
-  onColorChange = () => {
-    const { color } = this.state;
-    const newColor = color === 'red' ? 'black' : 'red';
+  function onColorChange() {
+    const newColor = state.color === 'red' ? 'black' : 'red';
 
-    this.setState({ color: newColor });
+    setState({ color: newColor });
   }
 
-  render = () => {
-    const { Provider } = ColorContext;
-
-    return (
-      <Provider value={this.state.color}>
-        <WelcomeText />
-        <button onClick={this.onColorChange}>Toggle color!</button>
-      </Provider>
-    );
-  }
+  return (
+    <Provider value={state.color}>
+      <WelcomeText />
+      <button onClick={onColorChange}>Toggle color!</button>
+    </Provider>
+  );
 }
 
 export default App;
